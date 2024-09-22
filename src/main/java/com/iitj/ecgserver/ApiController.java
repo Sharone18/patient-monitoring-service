@@ -65,6 +65,19 @@ public class ApiController {
         }
     }
 
+    @PostMapping("/users")
+    public ResponseEntity<String> saveUsers(@RequestBody LoginModel loginModel) {
+        try
+        {
+            this.authService.save(loginModel);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     private int getRandomInt(int min, int max, Random random) {
         return random.nextInt(max - min + 1) + min;
