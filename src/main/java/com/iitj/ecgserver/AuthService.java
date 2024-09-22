@@ -12,6 +12,7 @@ public class AuthService {
     private LoginRepository loginRepository;
 
     public boolean authenticate(String username, String password) {
+        System.out.println("username: " + username + " password: " + password);
         if (username.equals("admin") && password.equals("admin")) {
             return true;
         }
